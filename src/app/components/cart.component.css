@@ -1,0 +1,44 @@
+.cart {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 40vw;
+}
+
+.cart-list {
+    border: 1px black solid;
+    border-radius: 4px;
+    padding: 6px;
+    width: 40vw;
+}
+
+
+th.item {
+    width: 30%
+}
+
+th.quantity {
+    width: 10%
+}
+
+th.unitPrice {
+    width: 20%
+}
+
+th.subtotal {
+    width: 20%
+}
+
+.total-price {
+    margin-top: 8px;
+    font-weight:bold;
+}
+
+.cart-summary {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    box-sizing: border-box;
+}

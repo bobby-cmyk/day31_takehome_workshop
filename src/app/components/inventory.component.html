@@ -1,0 +1,23 @@
+<div class="items-list">
+    <h2>Today's Special</h2>
+
+    @if (inventories.length <= 0) {
+        <h3>No items in inventory</h3>
+    }
+
+    @else {
+        @for (item of inventories; let idx = $index; track item.key) {
+            <div class="item-card">
+                <img src="/fruits/{{item.imagePath}}" class="thumbnail">
+                <div class="item-details">
+                    <div>Name: {{item.name}}</div>
+                    <div>Price: {{item.unitPrice | currency}}</div>
+                    <div class="item-buttons">
+                        <button type="button" (click)="updateCart(-1, item.key)">-</button>
+                        <button type="button" (click)="updateCart(1, item.key)">+</button>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+</div>

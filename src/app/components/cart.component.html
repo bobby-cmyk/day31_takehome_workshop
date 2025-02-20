@@ -1,0 +1,57 @@
+<div class="cart">
+    <h2>Your Cart</h2>
+
+    @if(cart.lineItems.length <= 0) {
+        <h3>Your cart is empty!</h3>
+    }
+    
+    @else {
+        <table class="cart-list">
+            <thead>
+                <tr>
+                    <th class="item">
+                        Item
+                    </th>
+                    <th class="quantity">
+                        Quantity
+                    </th>
+                    <th class="unitPrice">
+                        Price
+                    </th>
+                    <th class="subtotal">
+                        Subtotal
+                    </th>
+                </tr>    
+            </thead>
+            
+            <tbody>
+                @for(lineItem of cart.lineItems; let idx = $index; track lineItem.key) {
+                    <tr class="cart-item">
+                        <td>
+                            {{lineItem.name}}
+                        </td>
+                        <td>
+                            {{lineItem.quantity}}
+                        </td>
+                        <td>
+                            {{lineItem.unitPrice | currency}}
+                        </td>
+                        <td>
+                            {{lineItem.totalPrice| currency}}
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="cart-summary">
+            <div class="total-price">
+                Total Price: {{cart.totalPrice | currency}}
+            </div>
+            <div class="checkout-btn">
+                <button type="button" (click)="checkout()">Check Out</button>
+            </div>
+        </div>
+        
+    }
+</div>
